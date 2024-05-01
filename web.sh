@@ -57,6 +57,7 @@ validate  "unzipping the eb application"
 
 
 cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $logfile
+validate  "copying roboshop conf file" 
 
 systemctl restart nginx &>> $logfile
 validate  "restarting nginx" 
