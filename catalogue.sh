@@ -71,6 +71,7 @@ validate "catalogue daemon reload"
 
 systemctl enable catalogue &>> $logfile
 validate  "enabling catalogue" 
+
 systemctl start catalogue &>> $logfile
 validate  "starting catalogue" 
 
@@ -79,6 +80,6 @@ cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $logfi
 dnf install mongodb-org-shell -y &>> $logfile
 validate  "installing mongodb shell" 
 
-mongo --host dbmongo.pjdevops.online </app/schema/catalogue.js &>> $logfile
+mongo --host mongodb.pjdevops.online</app/schema/catalogue.js &>> $logfile
 validate  "loading catalogue data into mongodb" 
 
