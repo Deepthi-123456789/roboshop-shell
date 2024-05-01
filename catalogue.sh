@@ -73,5 +73,5 @@ dnf install mongodb-org-shell -y
 validate  "installing mongodb shell" &>> $logfile
 
 mongo --host dbmongo.pjdevops.online </app/schema/catalogue.js
-validate  "loading catalogue data" &>> $logfile
+validate  "loading catalogue data into mongodb" &>> $logfile
 
