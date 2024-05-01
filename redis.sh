@@ -10,7 +10,6 @@ echo "script name $0"
 timestamp=$(date +%F-%H-%M-%S)
 
 logfile="/tmp/$0-$timestamp.log"
-exec &>logfile
 
 echo "script started excuting at $timestamp" &>> $logfile
  
@@ -32,19 +31,19 @@ else
     echo -e "$G root user $N"
 fi
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y 
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>> $logfile 
 validate "installing remi-release"
 
-dnf module enable redis:remi-6.2 -y 
+dnf module enable redis:remi-6.2 -y &>> $logfile 
 validate "enabling redis"
 
-dnf install redis -y 
+dnf install redis -y &>> $logfile 
 validate "installing redis"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf &>> $logfile
 
-systemctl enable redis
+systemctl enable redis &>> $logfile
 validate "enabling redis"
 
-systemctl start redis
+systemctl start redis &>> $logfile
 validate "starting redis"
