@@ -40,7 +40,7 @@ validate "enabling redis"
 dnf install redis -y &>> $logfile 
 validate "installing redis"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf &>> $logfile
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf &>> $logfile
 
 systemctl enable redis &>> $logfile
 validate "enabling redis"
