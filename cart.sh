@@ -64,6 +64,8 @@ validate "unzipping the cart file "
 npm install &>> $logfile
 validate "installing dependencies " 
 
+cp /home/centos/roboshop-shell/cart.service /etc/systemd/system/cart.service &>> $logfile
+
 systemctl daemon-reload &>> $logfile
 validate "cart daemon reload" 
 
