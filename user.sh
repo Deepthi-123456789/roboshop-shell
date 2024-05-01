@@ -80,6 +80,6 @@ cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $logfi
 dnf install mongodb-org-shell -y &>> $logfile
 validate  "installing mongodb shell" 
 
-mongo --host dbmongo.pjdevops.online </app/schema/user.js &>> $logfile
+mongo --host mongodb.pjdevops.online </app/schema/user.js &>> $logfile
 validate  "loading user data into mongodb" 
 
