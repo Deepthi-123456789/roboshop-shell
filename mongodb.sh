@@ -32,7 +32,7 @@ else
 fi
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $logfile
-validate $? "copied mongo repo"
+validate "copied mongo repo"
 
 dnf install mongodb-org -y &>> $logfile 
 validate "installing mongodb"
