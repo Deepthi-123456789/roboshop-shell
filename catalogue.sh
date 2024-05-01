@@ -7,7 +7,7 @@ Y="\e[33m"
 N="\e[0m"
 echo "script name $0"
 
-timestamp=$(data +%F-%H-%M-%S)
+timestamp=$(date +%F-%H-%M-%S)
 
 logfile="/tmp/$0-$timestamp.log"
 
@@ -40,7 +40,7 @@ validate "enabling  nodejs-18"
 dnf install nodejs -y &>> $logfile
 validate "installing nodejs-18" 
 
-id rodoshop
+id roboshop
 if [ $? -ne 0 ]
 then
     useradd roboshop &>> $logfile
