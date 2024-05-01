@@ -65,10 +65,10 @@ npm install &>> $logfile
 validate "installing dependencies " 
 
 systemctl daemon-reload &>> $logfile
-validate "catalogue daemon reload" 
+validate "cart daemon reload" 
 
-systemctl enable catalogue &>> $logfile
-validate  "enabling catalogue" 
+systemctl enable cart &>> $logfile
+validate  "enabling cart" 
 
-systemctl start catalogue &>> $logfile
-validate  "starting catalogue" 
+systemctl start cart &>> $logfile
+validate  "starting cart" 
