@@ -40,17 +40,25 @@ validate "enabling  nodejs-18"
 dnf install nodejs -y &>> $logfile
 validate "installing nodejs-18" 
 
-useradd roboshop &>> $logfile
+id rodoshop
+if [ $? -ne 0 ]
+then
+    useradd roboshop &>> $logfile
+    validate "roboshop user creation"
+else
+    echo "roboshop user already exisits skiping"
+fi
+
 validate "creating roboshop user " 
 
-mkdir /app &>> $logfile
+mkdir -p /app &>> $logfile
 validate "creating app directory " 
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $logfile
 validate "installing catalogue application " 
 
 cd /app 
-unzip /tmp/catalogue.zip &>> $logfile
+unzip -o /tmp/catalogue.zip &>> $logfile
 validate "unzipping the catalogue file " 
 
 npm install &>> $logfile
