@@ -48,10 +48,11 @@ validate "creating roboshop user "
 mkdir -p /app &>> $logfile
 validate "creating app directory " 
 
-curl -l -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $logfile
+curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $logfile
 validate "installing shipping  application " 
 
 cd /app 
+
 unzip -o /tmp/shipping.zip &>> $logfile
 validate "unzipping the shipping file " 
 
@@ -72,12 +73,12 @@ validate  "enabling shipping"
 systemctl start shipping &>> $logfile
 validate  "starting shipping"
 
-dnf install mysql -y $logfile 
+dnf install mysql -y &>> $logfile 
 validate "installing mysql client"
 
-mysql -h mysql.pjdevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql $logfile  
+mysql -h mysql.pjdevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql &>> $logfile
 
-systemctl restart shipping $logfile 
+systemctl restart shipping &>> $logfile 
 validate "shipping is restarted"
 
 
