@@ -75,6 +75,10 @@ validate  "starting shipping"
 dnf install mysql -y $logfile 
 validate "installing mysql"
 
+mysql -h < mysql.pjdevops.online > -uroot -pRoboShop@1 < /app/schema/shipping.sql $logfile  
+
 systemctl restart shipping $logfile 
 validate "shipping is restarted"
+
+
 
