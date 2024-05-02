@@ -48,7 +48,7 @@ validate "creating roboshop user "
 mkdir -p /app &>> $logfile
 validate "creating app directory " 
 
-curl -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $logfile
+curl -l -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $logfile
 validate "installing shipping  application " 
 
 cd /app 
