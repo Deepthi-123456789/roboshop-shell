@@ -3,7 +3,7 @@
 AMI=ami-0f3c7d07486cad139
 SG_ID=sg-04bb94f5d828fa09d
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "shipping" "payment" "cart" "catalogue" "user" "web" "dispatch")
-ZONE_ID=ZZ0426536RLNV1FOO62SE 
+ZONE_ID=Z0426536RLNV1FOO62SE 
 DOMAIN_NAME=pjdevops.online
 for i in "${INSTANCES[@]}"
 do
